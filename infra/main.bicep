@@ -21,7 +21,7 @@ resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   tags: tags
 }
 
-module openAI 'br/public:ai/cognitiveservices:1.0.4' = {
+module openAI 'br/public:ai/cognitiveservices:1.0.5' = {
   name: 'openai'
   scope: resourceGroup
   params: {
