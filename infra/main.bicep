@@ -29,15 +29,15 @@ module openAI 'br/public:ai/cognitiveservices:1.0.4' = {
     kind: 'OpenAI'
     name: 'openai-${resourceToken}'
     location: location
-    // roleAssignments: [
-    //   {
-    //     principalIds: [
-    //       principalId
-    //     ]
-    //     principalType: 'User'
-    //     roleDefinitionIdOrName: '5e0bd9bd-7b93-4f28-af87-19fc36ad61bd'
-    //   }
-    // ]
+    roleAssignments: [
+      {
+        principalIds: [
+          principalId
+        ]
+        principalType: 'User'
+        roleDefinitionIdOrName: '5e0bd9bd-7b93-4f28-af87-19fc36ad61bd'
+      }
+    ]
     deployments: [
       {
         name: 'Gpt35Turbo_0301'
@@ -68,17 +68,6 @@ module openAI 'br/public:ai/cognitiveservices:1.0.4' = {
         }
       }
     ]
-  }
-}
-
-
-module role 'core/security/role.bicep' = {
-  scope: resourceGroup
-  name: 'openai-role'
-  params: {
-    principalId: principalId
-    roleDefinitionId: '5e0bd9bd-7b93-4f28-af87-19fc36ad61bd'
-    principalType: 'User'
   }
 }
 
